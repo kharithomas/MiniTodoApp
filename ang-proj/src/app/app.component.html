@@ -1,0 +1,20 @@
+<div class="wrapper">
+  <header>Mini Todo App</header>
+  <div class="inputField">
+    <input type="text" placeholder="Add your new todo" 
+    (keyup.enter)="addTodoItem()" [(ngModel)]="todoValue">
+    <button class="" (click)="addTodoItem()"><i class="fas fa-plus"></i></button>
+  </div>
+  <ul class="todoList">
+    <!-- data are comes from local storage -->
+    <li *ngFor="let item of list">
+      <!-- <input type="checkbox" name="isDone" [(ngModel)]="item.isDone"> -->
+      {{ item.value }}
+      <span class="icon" (click)="deleteTodoItem(item.id)"><i class="fas fa-trash"></i></span>
+    </li>
+  </ul>
+  <div class="footer">
+    <span>You have {{ list.length }} pending tasks</span>
+    <button (click)="clearAll()">Clear All</button>
+  </div>
+</div>
